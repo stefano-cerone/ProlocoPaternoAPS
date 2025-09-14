@@ -1,0 +1,146 @@
+/* ===========================
+   GALLERIE FOTO — CSS DEDICATO
+   Metodo A: griglia uniforme
+   - Mobile: 1 foto per riga
+   - Desktop: 3 foto per riga
+   - Miniature tutte con la STESSA ALTEZZA (cropping via object-fit: cover)
+   =========================== */
+
+/* Se il CSS principale non carica le variabili, mettiamo dei fallback */
+:root{
+  --brand: #ff7a00;     /* arancione tema (fallback) */
+  --brand-2: #e96d00;   /* hover più scuro (fallback) */
+  --muted: #666;
+  --card: #f7f7f8;
+  --radius: 14px;
+}
+
+/* ----- PAGINA MADRE: elenco album ----- */
+
+.albums {
+  /* grid responsive per i bottoni/cover degli album */
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr; /* 1 colonna su mobile */
+  margin: 18px 0 30px;
+}
+
+/* Desktop: 3 colonne per i bottoni degli album */
+@media (min-width: 860px){
+  .albums {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.album-card {
+  display: grid;
+  gap: 10px;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none; /* rimuove sottolineatura del link */
+  color: inherit;        /* testo eredita il colore */
+  border: 1px solid #eee;
+}
+
+.album-card__cover {
+  /* immagine di copertina dell’album (miniatura) */
+  width: 100%;
+  height: 220px;        /* altezza fissa = griglia uniforme */
+  object-fit: cover;    /* taglia senza deformare */
+  display: block;
+}
+
+/* Desktop: cover leggermente più alta */
+@media (min-width: 860px){
+  .album-card__cover { height: 260px; }
+}
+
+.album-card__body {
+  padding: 12px 14px 14px;
+}
+
+.album-card__title {
+  margin: 0 0 6px;
+  font-weight: 800;
+}
+
+.album-card__meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.album-card:hover .album-card__title {
+  color: var(--brand);
+}
+
+/* ----- PAGINE ALBUM: griglia foto ----- */
+
+.gallery {
+  /* griglia di miniature */
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;      /* 1 colonna su mobile */
+  margin: 18px 0 30px;
+}
+
+/* Desktop: 3 colonne */
+@media (min-width: 860px){
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery figure {
+  /* ogni miniatura + didascalia */
+  margin: 0;
+  background: #0001;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+/* Miniatura: altezza fissa = righe ordinate
+   NOTE:
+   - le foto ORIZZONTALI e VERTICALI vengono "croppate" per stare nell’altezza fissa
+   - se vuoi mostrare l’intera immagine (senza crop), usa object-fit: contain e sfondo */
+.thumb {
+  width: 100%;
+  height: 240px;       /* altezza fissa (mobile) */
+  object-fit: cover;   /* riempie e ritaglia senza deformare */
+  display: block;
+}
+
+/* Desktop: miniature un filo più alte */
+@media (min-width: 860px){
+  .thumb { height: 300px; }
+}
+
+.gallery figcaption {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Link alla versione grande: effetto leggero */
+.gallery a:hover img {
+  filter: brightness(0.98);
+}
+
+/* ----- UTILITÀ / CTA facoltative ----- */
+
+.gallery-actions {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin: 6px 0 16px;
+}
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn:hover { background: var(--brand-2); }

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chi siamo — Pro Loco Paterno</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="\assets\img\face.ico">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img src="/assets/img/face.jpg" alt="Pro Loco Paterno">
+      Pro Loco Paterno
+    </a>
+    <input id="nav-toggle" type="checkbox">
+    <label for="nav-toggle" class="hamburger"><span></span><span></span><span></span></label>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="grande_panchina.html">Grande Panchina</a>
+      <a href="foto.html">Foto</a>
+      <a class="active" href="chi_siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container section">
+    <h1>Chi siamo</h1>
+    <p class="lead">La Pro Loco Paterno APS è un’associazione di volontariato che promuove cultura, turismo e tradizioni locali.</p>
+    <div class="card">
+      <h2>Contatti</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@prolocopaterno.it">info@prolocopaterno.it</a></p>
+      <p><strong>Telefono:</strong> +39 348 240 4069</p>
+      <p><strong>Sede:</strong> Paterno di Avezzano (AQ)</p>
+    </div>
+  </section>
+</main>
+
+<!-- Banner Contatti (arancione) -->
+<div class="contact-banner" role="contentinfo">
+  <div class="wrap">
+    <div class="left">Contatti</div>
+    <div class="right">
+      <a class="contact-item" href="mailto:info@prolocopaterno.it">info@prolocopaterno.it</a>
+      <a class="contact-item" href="tel:+393493142544">3482404069</a>
+
+      <a class="icon-btn" href="https://www.instagram.com/prolocopaternoaps/?igsh=OHhyZDF3OHgwanky#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="/assets/img/social/instagram.png" alt="Instagram">
+      </a>
+      <a class="icon-btn" href="https://www.facebook.com/ProlocopaternoAPS" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="/assets/img/social/facebook.png" alt="Facebook">
+      </a>
+      <a class="icon-btn" href="https://wa.me/393482404069" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <img src="/assets/img/social/whatsapp.png" alt="WhatsApp">
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Pro Loco Paterno APS — Tutti i diritti riservati.
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

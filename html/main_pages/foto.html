@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Album fotografici della Pro Loco Paternò: eventi e iniziative.">
+  <title>Foto Gallery — Pro Loco Paterno</title>
+  <link rel="stylesheet" href="/css/style.css"><!-- stile generale sito -->
+  <link rel="stylesheet" href="/css/gallery.css"><!-- stile dedicato gallerie -->
+  <link rel="icon" href="/assets/img/face.ico">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <img src="/assets/img/face.jpg" alt="Pro Loco Paterno">
+      Pro Loco Paterno
+    </a>
+    <input id="nav-toggle" type="checkbox">
+    <label for="nav-toggle" class="hamburger"><span></span><span></span><span></span></label>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="grande_panchina.html">Grande Panchina</a>
+      <a class="active" href="foto.html">Foto</a>
+      <a href="chi_siamo.html">Chi siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container section">
+    <h1>Album fotografici</h1>
+    <p class="lead">Scegli un evento per vedere le foto. Ogni album si apre in una pagina dedicata.</p>
+
+    <!-- Griglia dei bottoni/album -->
+    <div class="albums">
+      <!-- Album 1 -->
+      <a class="album-card" href="../gallerie/appennini_for_all.html">
+        <img class="album-card__cover" src="/assets/img/foto/AppenniniForAll/thumbs/img-003.jpg" alt="Evento 1 — cover">
+        <div class="album-card__body">
+          <h3 class="album-card__title">Appennini For All</h3>
+          <p class="album-card__meta">14 settembre 2025 · 9 foto</p>
+        </div>
+      </a>
+
+      <!-- Album 2 (duplica per nuovi eventi) -->
+      <a class="album-card" href="../gallerie/archivio_storico_fave.html">
+        <img class="album-card__cover" src="/assets/img/foto/ArchivioStorico/thumbs/cover.jpg" alt="Evento 2 — cover">
+        <div class="album-card__body">
+          <h3 class="album-card__title">Archivio Storico Sagra Delle Fave</h3>
+          <p class="album-card__meta">84 foto</p>
+        </div>
+      </a>
+
+      <!-- Album 3 -->
+      <a class="album-card" href="evento3.html">
+        <img class="album-card__cover" src="assets/img/foto/evento-003/thumbs/cover.jpg" alt="Evento 3 — cover">
+        <div class="album-card__body">
+          <h3 class="album-card__title">Evento 3 — Sagra</h3>
+          <p class="album-card__meta">5 dicembre 2025 · 32 foto</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Banner Contatti (arancione) -->
+<div class="contact-banner" role="contentinfo">
+  <div class="wrap">
+    <div class="left">Contatti</div>
+    <div class="right">
+      <a class="contact-item" href="mailto:info@prolocopaterno.it">info@prolocopaterno.it</a>
+      <a class="contact-item" href="tel:+393493142544">3482404069</a>
+
+      <a class="icon-btn" href="https://www.instagram.com/prolocopaternoaps/?igsh=OHhyZDF3OHgwanky#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="/assets/img/social/instagram.png" alt="Instagram">
+      </a>
+      <a class="icon-btn" href="https://www.facebook.com/ProlocopaternoAPS" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="/assets/img/social/facebook.png" alt="Facebook">
+      </a>
+      <a class="icon-btn" href="https://wa.me/393482404069" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <img src="/assets/img/social/whatsapp.png" alt="WhatsApp">
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Pro Loco Paterno APS — Tutti i diritti riservati.
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

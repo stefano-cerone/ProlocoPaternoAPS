@@ -1,0 +1,372 @@
+/* ===== Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ===== Variabili (tema arancione, accenti) */
+:root{
+  --bg:#fff; --text:#1a1a1a; --muted:#666;
+  --brand:#ff7a00;      /* arancione principale */
+  --brand-2:#e96d00;    /* hover più scuro */
+  --card:#f7f7f8;
+  --radius:14px;
+}
+
+/* ===== Base */
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.6;
+  font-size:16px; /* mobile leggibile */
+}
+.container{ width:min(1100px,92%); margin-inline:auto; }
+
+/* ===== Header + Navbar (mobile-first) */
+.site-header{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid #eee;   border-radius: 12px; padding: 08px 0;}
+.navbar{ display:flex; align-items:center; gap:18px; padding:10px 0; }
+
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; }
+.brand img{ width:34px; height:34px; border-radius:8px; object-fit:cover; }
+
+/* hamburger */
+#nav-toggle{ display:none; }
+.hamburger{ margin-left:auto; width:38px; height:34px; display:flex; flex-direction:column; justify-content:center; gap:6px; cursor:pointer; }
+.hamburger span{ height:2px; background:var(--text); display:block; }
+
+/* menu mobile chiuso di default */
+.menu{
+  position:absolute; left:0; right:0; top:100%; font-size: 1rem;
+  background:#fff; border-bottom:1px solid #eee;
+  display:none; flex-direction:column; padding:8px 16px 14px;
+}
+.menu a{
+  text-decoration:none; color:var(--text);
+  padding:10px 0; border-radius:8px;
+}
+.menu a:hover{ background:var(--card); }
+.menu a.active{ background:var(--brand); color:#fff; padding-left:10px; }
+
+/* toggle aperto */
+#nav-toggle:checked ~ .menu{ display:flex; }
+
+/* ===== Hero */
+.hero{ display:grid; gap:16px; padding:28px 0 18px; }
+.hero .card{ background:var(--card); border-radius:var(--radius); overflow:hidden; }
+.hero img{ width:100%; height:260px; object-fit:cover; }
+.hero .text{ padding:16px; }
+.cta{
+  display:inline-block; background:var(--brand); color:#fff;
+  padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:600;
+}
+.cta:hover{ background:var(--brand-2); }
+.hero .text h1 {
+  color: #ff7a00;
+    font-size: 1.8rem;   /* circa 28–30px su mobile */
+}
+
+@media (min-width: 860px) {
+  .hero .text h1 {
+    font-size: 2.8rem; /* circa 38–40px su desktop */
+  }
+}
+
+/* ===== Sezioni */
+.section{ padding:28px 0; }
+.section h1, .section h2{ line-height:1.2; margin:0 0 10px; }
+.lead{ color:var(--muted); }
+
+/* ===== Cards */
+.card{ background:var(--card); border-radius:var(--radius); padding:16px; }
+
+/* ===== Galleria Foto */
+.gallery{ display:grid; gap:10px; grid-template-columns:1fr; }
+.gallery figure{ margin:0; border-radius:12px; overflow:hidden; background:#0001; }
+.gallery figcaption{ padding:8px 10px; font-size:0.9rem; color:var(--muted); }
+
+/* ===== Footer base (copyright) */
+footer{ border-top:1px solid #eee; padding:18px 0 40px; color:var(--muted); font-size:0.95rem; text-align:center; }
+
+/* ===== Banner Contatti (arancione) */
+.contact-banner{
+  background:var(--brand);
+  color:#fff;
+  margin-top:24px;
+}
+.contact-banner .wrap{
+  width:min(1100px,92%);
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:14px 0;
+}
+.contact-banner .left{
+  font-weight:800; letter-spacing:.2px; font-size:1.05rem;
+}
+.contact-banner .right{
+  display:flex; flex-wrap:wrap; gap:10px;
+}
+.contact-item{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.22);
+  padding:8px 12px; border-radius:999px;
+  color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  font-weight:600;
+}
+.contact-item:hover{ background:rgba(255,255,255,.24); }
+
+/* Badge social */
+.badge{ padding:8px 12px; border-radius:999px; background:#fff; color:var(--brand); text-decoration:none; font-weight:700; border:1px solid #ffffff; }
+.badge:hover{ background:#fff; opacity:.9; }
+
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:50px; height:50px;
+  background:#fff; border:1px solid #fff; border-radius:999px;
+  text-decoration:none;
+  transition:transform .12s ease, opacity .12s ease;
+}
+.icon-btn:hover{ transform:translateY(-1px); opacity:.95; }
+.icon-btn img{ width:22px; height:22px; display:block; }
+
+
+/* ===== Desktop miglioramenti */
+@media (min-width:860px){
+  .hamburger{ display:none; }
+  .menu{ position:static; display:flex !important; flex-direction:row; gap:12px; border:none; padding:0; }
+  .menu a{ padding:8px 12px; }
+  .hero{ grid-template-columns:1.2fr 1fr; align-items:center; }
+  .hero img{ height:320; }
+  .gallery{ grid-template-columns:repeat(3,1fr); }
+  .contact-banner .wrap{ flex-direction:row; align-items:center; justify-content:space-between; }
+}
+/* ===== Eventi */
+.events { padding: 28px 0; }
+.events h1, .events h2 { margin: 0 0 10px; }
+
+.event {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 28px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.event__text { display: grid; gap: 8px; }
+.event__meta {
+  font-size: 0.95rem; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.event__meta .tag {
+  background: #fff; border: 1px solid #eee;
+  border-radius: 999px; padding: 6px 10px;
+}
+
+.event__title { margin: 4px 0 2px; line-height: 1.2; font-size: 1.8rem}
+.event__desc { margin: 0; font-size: 1.2rem}
+
+.event__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.event__btn {
+  text-decoration: none; font-weight: 700;
+  background: var(--brand); color: #fff;
+  padding: 10px 14px; border-radius: 999px;
+}
+.event__btn:hover { background: var(--brand-2); }
+
+/* Locandina (verticale) */
+.event__poster {
+  border-radius: 12px; overflow: hidden;
+  background: #0001;
+}
+.event__poster img {
+  width: 100%;
+  height: auto;           /* mobile: libera */
+  display: block;
+  object-fit: cover;
+}
+
+/* Desktop: 2 colonne, testo a sinistra / poster a destra */
+@media (min-width: 860px) {
+  .event {
+    grid-template-columns: 1.1fr .9fr;
+    align-items: start;
+  }
+  .event--reverse {
+    grid-template-columns: .9fr 1.1fr;
+  }
+  .event--reverse .event__text { order: 2; }
+  .event--reverse .event__poster { order: 1; }
+
+  /* (opz) altezza coerente poster su desktop */
+  .event__poster img {
+    height: 650px;        /* puoi regolare 480–560px */
+    object-fit: cover;
+  }
+}
+
+
+/* ===== Pagina Grande Panchina */
+
+/* Immagine principale pagina Grande Panchina */
+.panchina-hero {
+  width: 100%;
+  max-height: 420px;   /* limita l’altezza */
+  object-fit: cover;   /* taglia l’eccesso senza deformare */
+  border-radius: 12px;
+}
+
+@media (min-width: 860px) {
+  .panchina-hero {
+    max-height: 220px; /* su desktop puoi farla più grande */
+  }
+}
+
+/* descrizione sotto le foto */
+.timeline figcaption {
+  font-size: 1.0rem;   /* ~15px */
+  line-height: 1.5;
+}
+
+@media (min-width: 860px) {
+  .timeline figcaption {
+    font-size: 1.3rem; /* più grande su desktop */
+  }
+}
+
+
+/* Titoli delle sezioni nella pagina Grande Panchina */
+.section h2 {
+  font-size: 1.6rem;      /* grandezza (mobile) */
+  color: var(--brand);    /* colore arancione del tema */
+  text-align: center;     /* centrato */
+  margin-bottom: 16px;    /* spazio sotto */
+}
+
+@media (min-width: 860px) {
+  .section h2 {
+    font-size: 2.5rem;      /* più grande su desktop */
+  }
+}
+
+
+.timeline {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;           /* mobile: una colonna */
+  margin: 18px 0 30px;
+}
+.timeline .step {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.step figure { margin: 0; }
+.step img { width: 100%; height: auto; display: block; object-fit: cover; }
+.step figcaption { padding: 10px 12px; color: var(--muted); }
+
+.step .label {
+  display: block; margin: 12px auto 10px; 
+  background: #fff; border: 1px solid #9393936c; border-radius: 999px;
+  padding: 6px 10px; font-weight: 700;
+  align-self: center;
+  max-width: fit-content;  /* la label si restringe al contenuto */
+}
+
+/* Desktop: 2 colonne auto-fit */
+@media (min-width: 860px) {
+  .timeline {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+/* box informazioni della pagina Grande Panchina */
+.card {
+  font-size: 1.0rem;      /* testo normale (~16px) */
+  line-height: 1.6;
+}
+
+.card ul li {
+  font-size: 0.95rem;   /* elenco leggermente più compatto */
+  margin-bottom: 6px;
+}
+
+@media (min-width: 860px) {
+  .card {
+    font-size: 1.6rem;  /* leggermente più grande su desktop */
+  }
+  .card ul li{
+    font-size: 1.2rem;   /* elenco leggermente più compatto */
+    margin-bottom: 6px;
+  }
+}
+
+
+/* ===== Blocco poesia */
+.poem-block {
+  margin: 34px 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.poem-title {
+  font-family: "Cormorant Garamond", Georgia, serif; /* font dedicato */
+  margin: 0 0 8px; color: var(--brand); text-align: center; font-weight: 600; font-size: 1.6rem;
+}
+.poem {
+  font-family: "Cormorant Garamond", Georgia, serif; /* font dedicato */
+  font-size: 1.2rem; line-height: 1.9; text-align: center;
+  white-space: pre-line;          /* rispetta le righe/andate a capo */
+  margin: 0;
+  font-weight: 600;
+}
+@media (min-width: 860px) {
+  .poem-title { 
+    font-size: 2.0rem; 
+    font-weight: 650;
+  }
+  .poem { 
+    font-size: 1.6rem; 
+    font-weight: 600;
+  }
+}
+
+.section h1 {
+  font-size: 1.8rem;   /* ~28–30px su mobile */
+}
+
+@media (min-width: 860px) {
+  .section h1 {
+    font-size: 2.2rem; /* ~34–36px su desktop */
+  }
+}
+
+.section h2 {
+  font-size: 1.3rem;   /* ~20–21px */
+}
+
+@media (min-width: 860px) {
+  .section h2 {
+    font-size: 1.5rem; /* ~24px */
+  }
+}
+
+.lead {
+  font-size: 1rem;     /* ~16px */
+}
+
+@media (min-width: 860px) {
+  .lead {
+    font-size: 1.1rem; /* ~17–18px */
+  }
+}
+
+.card {
+  font-size: 0.95rem;   /* ~15px su mobile */
+  line-height: 1.6;
+}
+
+@media (min-width: 860px) {
+  .card {
+    font-size: 1rem;    /* ~16px su desktop */
+  }
+}
